@@ -215,7 +215,6 @@ a {
       url(./images/hero-image/Dark-bg_mob@2x.jpg);
   }
 }
-
 @media screen and (min-width: 480px) {
   .hero-sectoin {
     background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
@@ -236,20 +235,28 @@ a {
   @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
     .hero-sectoin {
       background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
-        url(./images/hero-image/people-office\ 1_desk@2x.jpgf);
+        url(./images/hero-image/people-office\ 1_desk@2x.jpg);
     }
   }
 }
 .hero-sectoin-title {
-  width: 496px;
+  width: 320px;
+  font-size: 36px;
+  line-height: 1.11;
   text-align: center;
-  font-size: 56px;
-  line-height: 1.07;
   font-weight: 700;
   letter-spacing: 0.02em;
   margin: 0 auto;
   margin-bottom: 48px;
   color: var(--light-txt-cl);
+}
+@media screen and (min-width: 768px) {
+  .hero-sectoin-title {
+    width: 496px;
+    text-align: center;
+    font-size: 56px;
+    line-height: 1.07;
+  }
 }
 .hero-sectoin-btn {
   padding: 16px 32px 16px 32px;
@@ -420,14 +427,23 @@ a {
   gap: 24px;
 }
 /* phone screen and tablet screen*/
-@media screen and (min-width: 480px) and (max-width: 1157px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
   .team-list {
     flex-wrap: wrap;
     gap: 72px;
   }
 }
+/* tablet screen*/
+@media screen and (min-width: 768px) and (max-width: 1157px) {
+  .team-list {
+    flex-wrap: wrap;
+    margin-right: 24px;
+  }
+  .team-list:nth-child(n + 3) {
+    margin-right: 0;
+  }
+}
 .team-item {
-  flex-basis: calc(100% / 4 - 24px);
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
     0px 2px 1px rgba(46, 47, 66, 0.08);
 }
@@ -502,24 +518,18 @@ a {
 /* phone screen */
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .customers-list {
-    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
   }
-}
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .customers-item {
-    margin-bottom: 72px;
-    width: 190px;
-    flex-basis: calc((100% - (24px * 1)) / 2);
+  .customers-item:not(:last-child) {
+    margin-bottom: 56px;
   }
-}
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .customers-item:nth-child(n + 5) {
+  .customers-item:nth-child(n + 6) {
     margin-bottom: 0;
   }
 }
+
 /* tablet screen */
 @media screen and (min-width: 768px) and (max-width: 1158px) {
   .customers-list {

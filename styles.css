@@ -204,10 +204,41 @@ a {
   padding: 188px 0;
   background-color: var(--dark-bg-cl);
   background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
-    url(./images/hero-image/people-office-1.jpg);
+    url(./images/hero-image/Dark-bg_mob@1x.jpg);
   background-repeat: no-repeat;
   background-position: 50%;
   background-size: cover;
+}
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .hero-sectoin {
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+      url(./images/hero-image/Dark-bg_mob@2x.jpg);
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .hero-sectoin {
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+      url(./images/hero-image/Dark-bg_tab@1x.jpg);
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .hero-sectoin {
+      background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+        url(./images/hero-image/Dark-bg_tab@2x.jpg);
+    }
+  }
+}
+@media screen and (min-width: 769px) {
+  .hero-sectoin {
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+      url(./images/hero-image/people-office\ 1_desk@1x.jpg);
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .hero-sectoin {
+      background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+        url(./images/hero-image/people-office\ 1_desk@2x.jpgf);
+    }
+  }
 }
 .hero-sectoin-title {
   width: 496px;
@@ -389,9 +420,10 @@ a {
   gap: 24px;
 }
 /* phone screen and tablet screen*/
-@media screen and (min-width: 320px) and (max-width: 1157px) {
+@media screen and (min-width: 480px) and (max-width: 1157px) {
   .team-list {
     flex-wrap: wrap;
+    gap: 72px;
   }
 }
 .team-item {
@@ -401,8 +433,8 @@ a {
 }
 /* phone screen */
 @media screen and (min-width: 320px) and (max-width: 767px) {
-  .team-item:not(:last-child) {
-    margin-bottom: 72px;
+  .team-item {
+    gap: 72px;
   }
 }
 /* tablet screen */

@@ -24,7 +24,7 @@
   /* Other */
   --time: 250ms;
   --time-distribution-function: cubic-bezier(0.4, 0, 0.2, 1);
-  --items: 2;
+  --items: 1;
   --indent: 24px;
 }
 body {
@@ -47,6 +47,7 @@ img {
   display: block;
   cursor: pointer;
   bottom: none;
+  width: 100%;
 }
 button {
   display: block;
@@ -66,9 +67,11 @@ a {
 .container {
   /* phone screen */
   min-width: 320px;
-  max-width: 428px;
-  padding: 0 16px;
-  margin: 0 auto;
+  max-width: 448px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* tablet screen */
@@ -313,28 +316,20 @@ a {
 }
 .information-list {
   display: flex;
-}
-/* phone screen */
-@media screen and (max-width: 767px) {
-  .information-list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+  justify-content: center;
+  flex-wrap: wrap;
 }
 /* tablet screen */
 @media screen and (min-width: 768px) and (max-width: 1157px) {
   .information-list {
     width: 768px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
+    gap: var(--indent);
   }
 }
 /* desktop screen */
 @media screen and (min-width: 1158px) {
   .information-list {
-    gap: 24px;
+    gap: var(--indent);
   }
 }
 /* phone screen */
@@ -347,7 +342,6 @@ a {
 @media screen and (min-width: 768px) and (max-width: 1157px) {
   .information-item {
     width: 346px;
-    height: 120px;
     margin-bottom: 72px;
   }
   .information-item:nth-child(n + 3) {
@@ -356,41 +350,40 @@ a {
 }
 .information-title {
   color: var(--main-txt-cl);
-  font-weight: 500;
-  font-size: 20px;
   line-height: 1.2;
-  letter-spacing: 0.02em;
   margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 36px;
+  text-align: center;
 }
-/* phone screen */
-@media screen and (max-width: 1157px) {
-  .information-title {
-    font-weight: 700;
-    font-size: 36px;
-    text-align: center;
-  }
-}
-/* tablet screen */
-@media screen and (min-width: 768px) and (max-width: 1157px) {
+@media screen and (min-width: 768px) {
   .information-title {
     text-align: left;
   }
 }
+@media screen and (min-width: 1158px) {
+  .information-title {
+    color: var(--main-txt-cl);
+    line-height: 1.2;
+    font-weight: 500;
+    font-size: 20px;
+  }
+}
 .item-text {
-  width: 264px;
+  width: 396px;
   color: var(--secondery--txt-cl);
   line-height: 1.5;
-}
-/* phone screen */
-@media screen and (max-width: 767px) {
-  .item-text {
-    width: 396px;
-  }
 }
 /* tablet screen */
 @media screen and (min-width: 768px) and (max-width: 1157px) {
   .item-text {
     width: 356px;
+  }
+}
+/* dektop screen */
+@media screen and (min-width: 1158px) {
+  .item-text {
+    width: 264px;
   }
 }
 .title {
@@ -413,13 +406,13 @@ a {
   }
 }
 .images-list {
-  display: flex;
-  gap: 24px;
+  display: none;
+  gap: var(--indent);
 }
 /* phone screen and tablet screen */
-@media screen and (min-width: 320px) and (max-width: 1157px) {
+@media screen and (min-width: 1158px) {
   .images-list {
-    display: none;
+    display: flex;
   }
 }
 .images-item {
@@ -769,6 +762,7 @@ a {
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .filters-list {
     flex-wrap: wrap;
+    justify-content: left;
   }
 }
 .filter-btn {
@@ -796,14 +790,46 @@ a {
 }
 .innovations-list {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
 }
-.innovations-item {
-  margin-right: 24px;
-  margin-bottom: 48px;
-  flex-basis: calc(100% / 3 - 24px);
+.card-set {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--indent);
 }
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.innovations-item {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.card-set-item {
+  flex-basis: calc((100% - var(--indent) * (var(--items) - 1)) / (var(--items)));
+}
+@media screen and (min-width: 768px) {
+  .innovations-list {
+    --items: 2;
+  }
+  .innovations-item {
+    margin-bottom: 48px;
+  }
+  .innovations-item:nth-child(n + 8) {
+    margin-bottom: 0;
+  }
+}
+@media screen and (min-width: 1158px) {
+  .innovations-list {
+    --items: 3;
+  }
+  .innovations-item:nth-child(n + 7) {
+    margin-bottom: 0;
+  }
+}
+
 .innovations-link {
   display: block;
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
@@ -836,16 +862,8 @@ a {
   background-color: #4d5ae5;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.innovations-item:nth-child(3n) {
-  margin-right: 0;
-}
-.innovations-item:nth-child(n + 7) {
-  margin-bottom: 0;
-}
 .card-cocntent {
-  padding-top: 32px;
-  padding-bottom: 32px;
-  padding-left: 16px;
+  padding: 32px 16px;
   border: 1px solid #e7e9fc;
   border-top: none;
 }

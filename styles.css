@@ -47,7 +47,6 @@ img {
   display: block;
   cursor: pointer;
   bottom: none;
-  width: 100%;
 }
 button {
   display: block;
@@ -771,14 +770,15 @@ a {
   transition-duration: var(--time);
   transition-timing-function: var(--time-distribution-function);
 }
-.innovations-link:hover,
-.innovations-link:focus {
+.innovations-item:hover,
+.innovations-item:focus {
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16),
     0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 .animation-box {
   position: relative;
   overflow: hidden;
+  max-width: 396px;
 }
 .innovations-link:hover .animation-text,
 .innovations-link:focus .animation-text {
@@ -798,6 +798,7 @@ a {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .card-cocntent {
+  max-width: 396px;
   padding: 32px 16px;
   border: 1px solid #e7e9fc;
   border-top: none;
